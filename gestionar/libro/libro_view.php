@@ -4,20 +4,32 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Libd - Busqueda</title>
+    <title>LiDB_Libros</title>
+    <link rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.1/css/fontawesome.min.css"
+      integrity="sha384-QYIZto+st3yW+o8+5OHfT6S482Zsvz2WfOzpFSXMF9zqeLcFV0/wlZpMtyFcZALm" crossorigin="anonymous">
   </head>
 
   <body>
-    <?php
-    include('navbar.php');
-    include('MySQLi.php');
 
-    $sql = sequal($_POST["dato"], $_POST["tipo"]);
-    $result = mysqli_query($mysqli, $sql);
+    <?php
+    include("../../config.php");
+    include(ROOT_DIR . "navbar.php");
+    include(ROOT_DIR . "MySQLi.php");
+    alerta();
+    if (isset($_POST['sql'])) {
+      $result = mysqli_query($mysqli, $_POST['sql']);
+
+    } else {
+      $result = mysqli_query($mysqli, "SELECT * FROM libro natural JOIN autor;");
+    }
+
     ?>
 
-
     <div class="container-md mt-3">
+      <div class="d-flex justify-content-start">
+        <a class="btn btn-dark mb-3" href="libro_form.php" role="button">Agregar</a>
+      </div>
       <!-- Muestra el contenido de la tabla libro y sus autores -->
       <table class=" mx-1 table table-hover ">
         <thead>
@@ -45,31 +57,3 @@
   </body>
 
 </html>
-
-<?php
-function sequal($var, $tipo)
-{
-  switch ($tipo) {
-
-    case "titulo":
-      $sql = "SELECT * FROM libro NATURAL JOIN autor WHERE titulo LIKE '%$var%'";
-      break;
-    case "anio":
-      $sql = "SELECT * FROM libro NATURAL JOIN autor WHERE anio LIKE '%$var%'";
-      break;
-    case "autor":
-      if ($var == "Autor") {
-        session_start();
-        $_SESSION['message'] = "Seleccione un autor";
-        $_SESSION['status'] = "danger";
-        header("Location: busqueda_form.php");
-      }
-      $sql = "SELECT * FROM libro  NATURAL JOIN autor WHERE idAutor = $var";
-      break;
-    case "biblioteca":
-      $sql = "SELECT * FROM libro NATURAL JOIN autor WHERE biblioteca = $var";
-      break;
-  }
-  return $sql;
-}
-?>

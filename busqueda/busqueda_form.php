@@ -14,7 +14,8 @@
     -->
 
     <?php
-    include("navbar.php");
+    include("../config.php");
+    include(ROOT_DIR . "navbar.php");
     alerta();
     ?>
 
@@ -113,7 +114,7 @@
 
                     <!-- Cuando es el proceso de actualizacion se debe volver a seleccionar el autor -->
                     <?php
-                    include("MySQLi.php");
+                    include(ROOT_DIR . "MySQLi.php");
                     $result = mysqli_query($mysqli, "SELECT * FROM autor");
                     while ($res = mysqli_fetch_array($result)) {
                       echo '<option value="' . $res['idAutor'] . '">' . $res['pNombre'] . ' ' . $res['sNombre'] . ' ' . $res['pApellido'] . ' ' . $res['sApellido'] . '</option>';

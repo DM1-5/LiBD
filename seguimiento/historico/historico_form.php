@@ -9,7 +9,9 @@
 
   <body>
     <?php
-    include("navbar.php");
+    include("../../config.php");
+    include(ROOT_DIR . "navbar.php");
+    include(ROOT_DIR . "MySQLi.php");
     alerta();
     ?>
 
@@ -28,7 +30,6 @@
                 <option>Libro</option>
                 <!-- Muestra todos los libros agregados a la base de datos  -->
                 <?php
-                include("MySQLi.php");
                 $result = mysqli_query($mysqli, "SELECT * FROM libro");
                 while ($res = mysqli_fetch_array($result)) {
                   echo '<option value="' . $res['idLibro'] . '">' . $res['titulo'] . '</option>';

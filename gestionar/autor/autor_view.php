@@ -9,15 +9,11 @@
 
   <body>
     <?php
-    // barra de navegacion
-    include("navbar.php");
 
+    include("../../config.php");
+    include(ROOT_DIR . "navbar.php");
+    include(ROOT_DIR . "MySQLi.php");
     alerta();
-
-
-
-    // coneccion a la base de datos
-    include("MySQLi.php");
     // consulta de todos los autores 
     $result = mysqli_query($mysqli, "SELECT * FROM autor");
     ?>

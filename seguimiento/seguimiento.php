@@ -9,7 +9,8 @@
 
   <body>
     <?php
-    include('navbar.php');
+    include("../config.php");
+    include(ROOT_DIR . "navbar.php");
     alerta();
     ?>
 
@@ -44,21 +45,21 @@
           tabindex="0">
 
           <?php
-          include('seguimiento_recientes.php');
+          include(ROOT_DIR . 'seguimiento/seguimiento_recientes.php');
           ?>
 
         </div>
         <div class="tab-pane fade" id="historico-tab-pane" role="tabpanel" aria-labelledby="historico-tab" tabindex="0">
 
           <?php
-          include('historico_view.php');
+          include(ROOT_DIR . 'seguimiento/historico/historico_view.php');
           ?>
 
         </div>
         <div class="tab-pane fade" id="calculo-tab-pane" role="tabpanel" aria-labelledby="calculo-tab" tabindex="0">
 
           <?php
-          include('calculo_form.php');
+          include(ROOT_DIR . 'seguimiento/calculo/calculo_form.php');
           ?>
 
         </div>

@@ -1,6 +1,8 @@
 <?php
 // incluye una vez la conexion a la base de datos
-include_once("MySQLi.php");
+include("../../config.php");
+include(ROOT_DIR . "MySQLi.php");
+
 session_start();
 if (isset($_POST['add']) || isset($_POST['update'])) {
   $idAutor = $_POST['idAutor'];

@@ -1,5 +1,7 @@
 <?php
-include('MySQLi.php');
+
+include("../config.php");
+include(ROOT_DIR . 'MySQLi.php');
 $result = mysqli_query(
   $mysqli,
   "SELECT * from historico h join libro l on (h.idLibro = l.idLibro) ORDER BY fecha DESC LIMIT 5;"
@@ -9,7 +11,7 @@ $result = mysqli_query(
 <div class="container mt-3">
 
   <div class="d-flex justify-content-start mb-3">
-    <a class="btn btn-dark" href="historico_form.php" role="button">Agregar</a>
+    <a class="btn btn-dark" href="historico/historico_form.php" role="button">Agregar</a>
   </div>
   <!-- tabla para mostrar el historico -->
   <table class=" mx-1 table table-hover">

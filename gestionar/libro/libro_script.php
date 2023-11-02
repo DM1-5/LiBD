@@ -1,5 +1,6 @@
 <?php
-include_once("MySQLi.php");
+include("../../config.php");
+include(ROOT_DIR . "MySQLi.php");
 
 if (isset($_POST['add']) || isset($_POST['update'])) {
   $idLibro = $_POST['idLibro'];

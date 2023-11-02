@@ -1,3 +1,6 @@
+<?php include("config.php") ?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +12,7 @@
 
 	<body>
 		<?php
-		include("navbar.php");
+		include($appRootPath . 'navbar.php');
 		?>
 
 		<div class="display-1 text-center"> HELLO </div>

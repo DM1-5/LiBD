@@ -10,11 +10,10 @@
   <body>
 
     <?php
-    // incluyo la barra de navegacion
-    include("navbar.php");
+    include("../../config.php");
+    include(ROOT_DIR . "navbar.php");
+    include(ROOT_DIR . "MySQLi.php");
     alerta();
-    //incluyo la conexion a la base de datos
-    include("MySQLi.php");
     // verifico si existe el idLibro en la url
     if (isset($_GET["idLibro"])) {
       // defino la variable $update para representar la accion que se va a realizar
@@ -68,14 +67,13 @@
 
             <!-- Cuando es el proceso de actualizacion se debe volver a seleccionar el autor -->
             <?php
-            include("MySQLi.php");
             $result = mysqli_query($mysqli, "SELECT * FROM autor");
             while ($res = mysqli_fetch_array($result)) {
               echo '<option value="' . $res['idAutor'] . '">' . $res['pNombre'] . ' ' . $res['sNombre'] . ' ' . $res['pApellido'] . ' ' . $res['sApellido'] . '</option>';
             }
             ?>
           </select>
-          <a class="btn btn-outline-dark mt-3" href="autor_form.php" rollhe="button">Agregar autor</a>
+          <a class="btn btn-outline-dark mt-3" href="/libd/gestionar/autor/autor_form.php" rollhe="button">Agregar autor</a>
 
         </div>
 
@@ -97,16 +95,6 @@
                 value="<?php echo $paginas ?>">
             </div>
           </div>
-
-          <!--
-        <div class="col">
-          <div class="mb-3">
-            <label class="form-label">Paginas Leidas</label>
-            <input name="paginasLeidas" type="number" class="form-control" placeholder="0" value="">
-          </div>
-        </div>
-      </div>
-        -->
 
           <div class="row">
 

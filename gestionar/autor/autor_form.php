@@ -9,8 +9,9 @@
 
     <body>
         <?php
-        include("navbar.php");
-        include("MySQLi.php");
+        include("../../config.php");
+        include(ROOT_DIR . "navbar.php");
+        include(ROOT_DIR . "MySQLi.php");
 
         // verifico si existe el idAutor en la url
         if (isset($_GET["id"])) {

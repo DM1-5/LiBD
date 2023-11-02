@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <?php
 session_start();
-include_once("MySQLi.php");
+
+include("../../config.php");
+include(ROOT_DIR . "navbar.php");
+include(ROOT_DIR . "MySQLi.php");
+
 if (empty($_POST['idAutor'])) {
 	$idAutor = $_GET['idAutor'];
 } else {
@@ -31,9 +35,6 @@ if (isset($_POST['delete'])) {
 	</head>
 
 	<body>
-		<?php
-		include("navbar.php");
-		?>
 
 		<div class="d-flex justify-content-center">
 

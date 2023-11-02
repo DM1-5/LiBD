@@ -16,7 +16,7 @@
 
       <div class="display-5 mb-3">Hojas por dia</div>
 
-      <form action="calculo_hojas.php" method="post">
+      <form action="/libd/seguimiento/calculo/calculo_hojas.php" method="post">
 
         <!-- Selector de Libro -->
         <div class="row">
@@ -27,7 +27,8 @@
                 <option>Libro</option>
                 <!-- Muestra todos los libros agregados a la base de datos  -->
                 <?php
-                include("MySQLi.php");
+                include("../../config.php");
+                include(ROOT_DIR . "MySQLi.php");
                 $result = mysqli_query($mysqli, "SELECT * FROM libro");
                 while ($res = mysqli_fetch_array($result)) {
                   echo '<option value="' . $res['idLibro'] . '">' . $res['titulo'] . '</option>';
@@ -55,7 +56,7 @@
       <div>
         <div class="display-5 mb-3">Por distancia entre fechas</div>
 
-        <form action="calculo_fechas.php" method="post">
+        <form action="/libd/seguimiento/calculo/calculo_fechas.php" method="post">
 
           <div class="mb-3">
             <label class="form-label">Libro</label>
@@ -63,7 +64,8 @@
               <option>Libro</option>
               <!-- Muestra todos los libros agregados a la base de datos  -->
               <?php
-              include("MySQLi.php");
+              include("../../config.php");
+              include(ROOT_DIR . "MySQLi.php");
               $result = mysqli_query($mysqli, "SELECT * FROM libro");
               while ($res = mysqli_fetch_array($result)) {
                 echo '<option value="' . $res['idLibro'] . '">' . $res['titulo'] . '</option>';

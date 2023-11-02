@@ -9,8 +9,9 @@
 
   <body>
     <?php
-    include("navbar.php");
-    include("MySQLi.php");
+    include("../../config.php");
+    include(ROOT_DIR . "navbar.php");
+    include(ROOT_DIR . "MySQLi.php");
     $result = mysqli_query($mysqli, "SELECT * FROM libro NATURAL JOIN autor WHERE idLibro = $_GET[idLibro]");
     while ($res = mysqli_fetch_array($result)) {
       $idLibro = $res['idLibro'];

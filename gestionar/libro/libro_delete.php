@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <?php
+include("../../config.php");
+include(ROOT_DIR . "MySQLi.php");
 
-include_once("MySQLi.php");
 
 if (empty($_POST['idLibro'])) {
   $idLibro = $_GET['idLibro'];
@@ -12,7 +13,9 @@ if (empty($_POST['idLibro'])) {
 if (isset($_POST['delete'])) {
   $result0 = mysqli_query($mysqli, "DELETE from historico WHERE idLibro = $idLibro");
   if (!$result0) {
-    echo "Error al eliminar historico";
+    session_start();
+    $_SESSION['message'] = "Error al eliminar libro.";
+    $_SESSION['status'] = "danger";
   }
   $result = mysqli_query($mysqli, "DELETE FROM libro WHERE idLibro = $idLibro");
   if ($result) {
@@ -38,7 +41,7 @@ if (isset($_POST['delete'])) {
 
   <body>
     <?php
-    include("navbar.php");
+    include(ROOT_DIR . "navbar.php");
     ?>
 
     <div class="d-flex justify-content-center">

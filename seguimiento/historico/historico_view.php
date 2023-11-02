@@ -9,7 +9,8 @@
 
   <body>
     <?php
-    include('MySQLi.php');
+    include("../../config.php");
+    include(ROOT_DIR . "MySQLi.php");
     $result = mysqli_query($mysqli, "SELECT * from historico h JOIN libro l ON (h.idLibro = l.idLibro) order by fecha DESC ");
     ?>
 
@@ -17,7 +18,7 @@
 
       <!-- Boton para agregar un nuevo autor -->
       <div class="d-flex justify-content-start mb-3">
-        <a class="btn btn-dark" href="historico_form.php" role="button">Agregar</a>
+        <a class="btn btn-dark" href="/libd/seguimiento/historico/historico_form.php" role="button">Agregar</a>
       </div>
       <!-- tabla para mostrar los autores -->
 

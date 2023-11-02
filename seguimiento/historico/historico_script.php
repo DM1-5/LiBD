@@ -1,5 +1,8 @@
 <?php
-include("MySQLi.php");
+
+include("../../config.php");
+include(ROOT_DIR . "MySQLi.php");
+
 
 if (isset($_POST["add"])) {
 
@@ -41,7 +44,7 @@ if (isset($_POST["add"])) {
       session_start();
       $_SESSION['message'] = "Entrada agregada correctamente";
       $_SESSION['status'] = "success";
-      header("Location: seguimiento.php");
+      header("Location: /libd/seguimiento/seguimiento.php");
     }
   } else {
     session_start();
